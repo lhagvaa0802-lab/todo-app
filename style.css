@@ -41,19 +41,17 @@ body {
   width: 345px;
   gap: 10px;
   margin-bottom: 20px;
-
 }
 
 .input-group input {
   height: 40px;
   width: 280px;
   padding: 8px 16px 8px 16px;
-  border: 1px solid #E4E4E7 ;
+  border: 1px solid #e4e4e7;
   border-radius: 8px;
   font-size: 16px;
   outline: none;
 }
-
 
 .btn-primary {
   height: 40px;
@@ -65,7 +63,6 @@ body {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  
 }
 
 .btn-primary:hover {
@@ -77,85 +74,82 @@ body {
   gap: 16px;
   margin-bottom: 24px;
   display: flex;
-    text-align: center;
+  text-align: center;
 }
-#filter-btn-all{
-    height: 32px;
-    width: 38px;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    
+#filter-btn-all {
+  height: 32px;
+  width: 38px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#filter-btn-all:hover{
-    background-color: #2563eb;
+#filter-btn-all:hover {
+  background-color: #2563eb;
 }
 
-
-#filter-btn-active{
-    height: 32px;
-    width: 54px;
-    background-color: #F3F4F6;
-    color: #363636;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+#filter-btn-active {
+  height: 32px;
+  width: 54px;
+  background-color: #f3f4f6;
+  color: #363636;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#filter-btn-active:hover{
-    background-color: #E0E7FF;
+#filter-btn-active:hover {
+  background-color: #e0e7ff;
 }
-#filter-btn-completed{
-    height: 32px;
-    width: 87px;
-    background-color: #F3F4F6;
-    color: #363636;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#filter-btn-completed {
+  height: 32px;
+  width: 87px;
+  background-color: #f3f4f6;
+  color: #363636;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#filter-btn-completed:hover{
-    background-color: #E0E7FF;
+#filter-btn-completed:hover {
+  background-color: #e0e7ff;
 }
-
-
 
 .task-list {
   list-style: none;
   min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.task-list-item{
- width: 100%;
+.task-list-item {
+  width: 100%;
   height: 62px;
   padding: 12px 16px;
-  background-color: #F9FAFB;
-  border-radius: 8px; ;
+  background-color: #f9fafb;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.task-item-left{
+.task-item-left {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -166,38 +160,22 @@ body {
   cursor: pointer;
 }
 .task-text {
-color: #000000;
+  color: #000000;
   font-weight: 400;
-
 }
-.task-delete{
-    height: 30px;
-    width: 67px;
-    background-color: #FEF2F2;
-    border: none;
-    color: #ef4444;
-    cursor: pointer;
-    font-size: 14px;
-    display: none;
+.delete_btn {
+  height: 30px;
+  width: 67px;
+  background-color: #fef2f2;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 14px;
+  display: none;
 }
-.task-delete:hover{
-    background-color: #ffe0e0;
+.delete_btn:hover {
+  background-color: #ffe0e0;
 }
-
-
-
-
-.task-list.completed {
-  text-decoration: line-through;
-  color: #94a3b8;
-}
-
-
-
-
-
-
-
 
 .empty-message {
   text-align: center;
@@ -223,4 +201,12 @@ color: #000000;
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+.show_delete {
+  display: block;
 }
