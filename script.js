@@ -1,12 +1,17 @@
 const inputBox = document.querySelector(".input-group input");
 const addBtn = document.querySelector(".input-group button");
 const taskList = document.querySelector("#task-list");
-const taskDelete = document.getElementById("task-delete");
 const emptyMessage = document.getElementById("emptyMessage");
+const filterButtonsAll=document.getElementById("filter-btn-all");
+const filterButtonsActive=document.getElementById("filter-btn-active");
+const filterButtonsCompleted=document.getElementById("filter-btn-completed");
+
+
 
 let tasks = [];
-
 let tasId = 1;
+let totalTasks = 0;
+let updatecount=0;
 
 const add = () => {
   const taskText = inputBox.value;
@@ -17,10 +22,14 @@ const add = () => {
   };
   tasks.push(task);
   tasId++;
+  totalTasks++;
   clearText();
   clearInput();
   renderTasks(tasks);
 };
+
+
+
 
 const renderTasks = (taskArr) => {
   let taskItems = "";
@@ -31,7 +40,12 @@ const renderTasks = (taskArr) => {
   });
 
   taskList.innerHTML = taskItems;
+  resultSection.innerHTML = createResultMessage();
+
 };
+
+
+
 
 const createTaskItem = (task) => {
   return `
@@ -50,38 +64,67 @@ const createTaskItem = (task) => {
         </div>`;
 };
 
+
+const createResultMessage = () => {
+  return `<p id="resultMessage"> ${updatecount} of ${totalTasks} tasks completed</p>
+          <button id="clear" onclick="clearBtn()">Clear completed</button>`;
+}
+
+
+
+
+
 const updateTask = (id) => {
   const updatedTasks = tasks.map((task) => {
+     
     if (task.id === id) {
       return { ...task, isCompleted: !task.isCompleted };
     } else {
       return task;
     }
   });
-
+  updatecount= updatedTasks.filter((task) => task.isCompleted).length;
   tasks = updatedTasks;
-
   renderTasks(updatedTasks);
 };
+
+
+
+
+const deleteBtn = (taskId) => {
+  const updatedTasks = tasks.filter((task) => task.id !== taskId);
+   tasks = updatedTasks;
+   renderTasks(updatedTasks);
+};
+
+function allBtn() {
+  renderTasks(tasks);
+}
+function activeBtn() {
+  const activeTasks = tasks.filter((task) => !task.isCompleted);
+  renderTasks(activeTasks);
+}
+function completedBtn() {
+  const completedTasks = tasks.filter((task) => task.isCompleted);
+  
+ renderTasks(completedTasks);
+}
+
+
+    
+
+
+
 
 const clearInput = () => {
   inputBox.value = "";
 };
-let clearText = () => {
+const clearText = () => {
   emptyMessage.innerHTML = "";
 };
-const deleteBtn = (taskId) => {
-  const updatedTasks = tasks.filter((task) => {
-    if (task.id === taskId) {
-      return false;
-    } else {
-      return true;
-    }
-  });
 
-  tasks = updatedTasks;
-
-  renderTasks(updatedTasks);
-};
 
 addBtn.addEventListener("click", add);
+filterButtonsAll.addEventListener("click", allBtn);
+filterButtonsActive.addEventListener("click", activeBtn);
+filterButtonsCompleted.addEventListener("click", completedBtn);
