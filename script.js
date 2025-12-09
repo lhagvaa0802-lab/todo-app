@@ -110,6 +110,12 @@ function completedBtn() {
  renderTasks(completedTasks);
 }
 
+function clearBtn() {
+
+  tasks = tasks.filter((task) => !task.isCompleted);
+
+  renderTasks(tasks);
+}
 
     
 
